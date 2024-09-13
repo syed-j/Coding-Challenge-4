@@ -1,3 +1,5 @@
+
+// Made an inventory with all the items
 const inventory = [
     { name: 'Laptop', price: 1200, quantity: 10, lowStockLevel: 3 },
     { name: 'Smartphone', price: 800, quantity: 5, lowStockLevel: 2 },
@@ -6,5 +8,9 @@ const inventory = [
     { name: 'Smartwatch', price: 250, quantity: 3, lowStockLevel: 1 },
 ];
 
-console.log(inventory)
+
+function displayProductDetails(product) {
+    const stockStatus = product.quantity <= product.lowStockLevel ? 'Low Stock' : 'In Stock';
+    console.log(`Name: ${product.name}, Price: $${product.price}, Quantity: ${product.quantity}, Stock Status: ${stockStatus}`);
+}
 
