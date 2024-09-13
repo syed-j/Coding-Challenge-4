@@ -30,3 +30,13 @@ function updateStock(product, unitsSold) {
     }
 }
 
+// checking if the stocl is low
+function checkLowStock() {
+    console.log('Products with low stock:');
+    inventory.forEach(product => {
+        if (product.quantity <= product.lowStockLevel) {
+            console.log(`- ${product.name}`);
+        }
+    });
+}
+
