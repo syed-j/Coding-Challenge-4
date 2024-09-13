@@ -46,3 +46,14 @@ function calculateInventoryValue() {
     console.log(`Total inventory value: $${totalValue}`);
     return totalValue;
 }
+
+// a Function to Process a Sale
+function processSale(productName, unitsSold) {
+    const product = inventory.find(item => item.name === productName);
+    if (!product) {
+        console.log(`Error: Product "${productName}" not found in the inventory.`);
+        return;
+    }
+    updateStock(product, unitsSold);
+}
+
