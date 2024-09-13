@@ -40,3 +40,9 @@ function checkLowStock() {
     });
 }
 
+//checking total stock 
+function calculateInventoryValue() {
+    const totalValue = inventory.reduce((acc, product) => acc + (product.price * product.quantity), 0);
+    console.log(`Total inventory value: $${totalValue}`);
+    return totalValue;
+}
