@@ -8,9 +8,25 @@ const inventory = [
     { name: 'Smartwatch', price: 250, quantity: 3, lowStockLevel: 1 },
 ];
 
-
+// function to show if stocks are available
 function displayProductDetails(product) {
     const stockStatus = product.quantity <= product.lowStockLevel ? 'Low Stock' : 'In Stock';
     console.log(`Name: ${product.name}, Price: $${product.price}, Quantity: ${product.quantity}, Stock Status: ${stockStatus}`);
+}
+
+
+// a Function to Update Product Stock After Sales
+function updateStock(product, unitsSold) {
+    if (unitsSold > product.quantity) {
+        console.log(`Error: Not enough stock of ${product.name} to sell ${unitsSold} units.`);
+        return;
+    }
+    product.quantity -= unitsSold;
+    console.log(`Sold ${unitsSold} units of ${product.name}. New quantity: ${product.quantity}`);
+    if (product.quantity === 0) {
+        console.log(`${product.name} is now out of stock.`);
+    } else if (product.quantity <= product.lowStockLevel) {
+        console.log(`${product.name} is now low on stock.`);
+    }
 }
 
